@@ -17,7 +17,7 @@ function dbMessage(err: { code?: string; message: string }): string {
   if (m.includes("customers_phone_check")) return "Nomor telepon terlalu panjang (maksimal 50 karakter).";
   if (m.includes("customers_company_check")) return "Nama perusahaan terlalu panjang (maksimal 200 karakter).";
   if (m.includes("customers_notes_check")) return "Catatan terlalu panjang (maksimal 5000 karakter).";
-  if (err.code === "42501") return "Aksi ini tidak diizinkan.";
+  if (err.code === "42501") return `Aksi ini tidak diizinkan oleh database (${m}).`;
   return `Gagal menyimpan: ${m}`;
 }
 
@@ -51,7 +51,6 @@ export async function updateCustomer(_prev: FormState, fd: FormData): Promise<Fo
       company: company || null,
       email: email || null,
       notes: notes || null,
-      updated_at: new Date().toISOString(),
     })
     .eq("id", id)
     .select("id");
