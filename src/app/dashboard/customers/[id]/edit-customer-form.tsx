@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { FeedbackOverlay } from "@/components/feedback-overlay";
 import { updateCustomer, type FormState } from "../actions";
 
 type Customer = {
@@ -103,16 +104,7 @@ export function EditCustomerForm({ customer }: { customer: Customer }) {
         </button>
       </div>
 
-      {state.error && (
-        <p role="alert" className="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-800">
-          {state.error}
-        </p>
-      )}
-      {state.ok && (
-        <p role="status" className="rounded-lg bg-petal-100 px-3.5 py-2.5 text-sm text-navy-800">
-          {state.ok}
-        </p>
-      )}
+      <FeedbackOverlay pending={pending} state={state} loadingText="Menyimpan data customer…" />
     </form>
   );
 }

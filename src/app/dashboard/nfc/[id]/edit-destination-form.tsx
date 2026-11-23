@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { FeedbackOverlay } from "@/components/feedback-overlay";
 import { updateDestination, type FormState } from "../actions";
 
 export function EditDestinationForm({ id, current }: { id: string; current: string }) {
@@ -30,16 +31,7 @@ export function EditDestinationForm({ id, current }: { id: string; current: stri
         </button>
       </div>
       <p className="text-xs text-muted">URL permanen di tag NFC tidak berubah; hanya tujuannya.</p>
-      {state.error && (
-        <p role="alert" className="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-800">
-          {state.error}
-        </p>
-      )}
-      {state.ok && (
-        <p role="status" className="rounded-lg bg-petal-100 px-3.5 py-2.5 text-sm text-navy-800">
-          {state.ok}
-        </p>
-      )}
+      <FeedbackOverlay pending={pending} state={state} loadingText="Menyimpan tujuan baru…" />
     </form>
   );
 }

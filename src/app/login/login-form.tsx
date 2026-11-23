@@ -1,13 +1,13 @@
 "use client";
 
 import { useActionState } from "react";
+import { FeedbackOverlay } from "@/components/feedback-overlay";
 import { signIn, type LoginState } from "./actions";
 
 const initial: LoginState = {};
 
 export function LoginForm({ notice }: { notice?: string }) {
   const [state, action, pending] = useActionState(signIn, initial);
-  const message = state.error ?? notice;
 
   return (
     <form action={action} className="space-y-5">
@@ -37,11 +37,12 @@ export function LoginForm({ notice }: { notice?: string }) {
           className="w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15"
         />
       </div>
-      {message && (
+      {notice && (
         <p role="alert" className="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-800">
-          {message}
+          {notice}
         </p>
       )}
+      <FeedbackOverlay pending={pending} state={state} loadingText="Memeriksa akun…" />
       <button
         type="submit"
         disabled={pending}

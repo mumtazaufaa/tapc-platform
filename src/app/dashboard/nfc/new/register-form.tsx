@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
+import { FeedbackOverlay } from "@/components/feedback-overlay";
 import { createTag, type FormState } from "../actions";
 
 type Customer = { id: string; full_name: string; company: string | null };
@@ -126,11 +127,7 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
         </label>
       </section>
 
-      {state.error && (
-        <p role="alert" className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800">
-          {state.error}
-        </p>
-      )}
+      <FeedbackOverlay pending={pending} state={state} loadingText="Menyimpan tag…" />
 
       <button
         type="submit"
