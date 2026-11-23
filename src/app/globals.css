@@ -1,20 +1,32 @@
 @import "tailwindcss";
 
+/* Palet diambil dari poster "Build Your Own Charm": denim navy, pink kain gingham, dan krem. */
 @theme {
-  --color-forest-950: #0f241a;
-  --color-forest-900: #163326;
-  --color-forest-800: #1f4331;
-  --color-forest-700: #2a5a42;
-  --color-sage-500: #8fa89a;
-  --color-sage-300: #c5d3ca;
-  --color-sage-100: #e9efe9;
-  --color-paper: #f7f8f5;
+  --color-navy-950: #1f2842;
+  --color-navy-900: #2e3b5e;
+  --color-navy-800: #3b4a70;
+  --color-navy-700: #52628a;
+  --color-navy-300: #a9b3cf;
+  --color-petal-500: #d68a9b;
+  --color-petal-300: #ebc6cc;
+  --color-petal-100: #f9e7ea;
+  --color-muted: #5f6988;
+  --color-paper: #fcf5ec;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: var(--color-paper);
-  color: var(--color-forest-950);
+  color: var(--color-navy-950);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Motif gingham pink seperti di poster; dipakai di halaman login. */
+.gingham {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(rgba(214, 138, 155, 0.3) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(214, 138, 155, 0.3) 50%, transparent 50%);
+  background-size: 56px 56px;
 }

@@ -28,7 +28,7 @@ export function CopyButton({ text, label = "Salin" }: { text: string; label?: st
     <button
       type="button"
       onClick={copy}
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-sage-300 bg-white px-2.5 py-1.5 text-xs font-medium text-forest-800 transition hover:bg-sage-100"
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-petal-300 bg-white px-2.5 py-1.5 text-xs font-medium text-navy-800 transition hover:bg-petal-100"
     >
       {copied ? <Check size={14} /> : <Copy size={14} />}
       {copied ? "Tersalin" : label}

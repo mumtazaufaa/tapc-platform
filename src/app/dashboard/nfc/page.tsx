@@ -52,24 +52,24 @@ export default async function NfcListPage({
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">NFC Management</h1>
-          <p className="mt-1 text-sm text-sage-500">Daftar tag NFC beserta URL permanen dan tujuannya.</p>
+          <p className="mt-1 text-sm text-muted">Daftar tag NFC beserta URL permanen dan tujuannya.</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
         <Link
           href="/dashboard/nfc/new"
-          className="inline-flex items-center gap-1.5 rounded-lg bg-forest-900 px-3.5 py-2 text-sm font-medium text-white transition hover:bg-forest-800"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-navy-900 px-3.5 py-2 text-sm font-medium text-white transition hover:bg-navy-800"
         >
           <Plus size={16} /> Registrasi NFC
         </Link>
-        <div className="flex gap-1 rounded-xl border border-sage-300/70 bg-white p-1">
+        <div className="flex gap-1 rounded-xl border border-petal-300/70 bg-white p-1">
           {FILTERS.map((f) => (
             <Link
               key={f.key}
               href={f.key === "all" ? "/dashboard/nfc" : `/dashboard/nfc?status=${f.key}`}
               className={`rounded-lg px-3 py-1.5 text-sm transition ${
                 filter === f.key
-                  ? "bg-forest-900 font-medium text-white"
-                  : "text-forest-800 hover:bg-sage-100"
+                  ? "bg-navy-900 font-medium text-white"
+                  : "text-navy-800 hover:bg-petal-100"
               }`}
             >
               {f.label}
@@ -80,7 +80,7 @@ export default async function NfcListPage({
       </div>
 
       {base.isLocal && (
-        <p className="mt-6 rounded-lg bg-sage-100 px-4 py-3 text-sm text-forest-800">
+        <p className="mt-6 rounded-lg bg-petal-100 px-4 py-3 text-sm text-navy-800">
           URL di bawah memakai alamat lokal ({base.url}). Jangan diprogram ke tag NFC; gunakan URL
           setelah aplikasi dideploy ke domain Vercel.
         </p>
@@ -92,9 +92,9 @@ export default async function NfcListPage({
         </p>
       )}
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-sage-300/70 bg-white">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-petal-300/70 bg-white">
         <table className="w-full min-w-[56rem] text-left text-sm">
-          <thead className="border-b border-sage-300/70 text-xs uppercase tracking-wide text-sage-500">
+          <thead className="border-b border-petal-300/70 text-xs uppercase tracking-wide text-muted">
             <tr>
               <th className="px-4 py-3 font-medium">Tag</th>
               <th className="px-4 py-3 font-medium">Customer</th>
@@ -105,10 +105,10 @@ export default async function NfcListPage({
               <th className="px-4 py-3 font-medium" />
             </tr>
           </thead>
-          <tbody className="divide-y divide-sage-300/50">
+          <tbody className="divide-y divide-petal-300/50">
             {tags.length === 0 && !error && (
               <tr>
-                <td colSpan={7} className="px-4 py-12 text-center text-sage-500">
+                <td colSpan={7} className="px-4 py-12 text-center text-muted">
                   {filter === "all"
                     ? "Belum ada NFC tag. Klik “Registrasi NFC” untuk membuat yang pertama."
                     : "Tidak ada tag dengan status ini."}
@@ -120,19 +120,19 @@ export default async function NfcListPage({
               return (
                 <tr key={t.id} className="align-top">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-forest-950">{t.label ?? "Tanpa label"}</p>
-                    <p className="mt-0.5 font-mono text-xs text-sage-500">{t.slug}</p>
+                    <p className="font-medium text-navy-950">{t.label ?? "Tanpa label"}</p>
+                    <p className="mt-0.5 font-mono text-xs text-muted">{t.slug}</p>
                   </td>
                   <td className="px-4 py-3">
                     {t.customers ? (
                       <>
                         <p>{t.customers.full_name}</p>
                         {t.customers.company && (
-                          <p className="mt-0.5 text-xs text-sage-500">{t.customers.company}</p>
+                          <p className="mt-0.5 text-xs text-muted">{t.customers.company}</p>
                         )}
                       </>
                     ) : (
-                      <span className="text-sage-500">-</span>
+                      <span className="text-muted">-</span>
                     )}
                   </td>
                   <td className="px-4 py-3">
@@ -151,11 +151,11 @@ export default async function NfcListPage({
                   <td className="px-4 py-3">
                     <StatusBadge active={t.is_active} />
                   </td>
-                  <td className="whitespace-nowrap px-4 py-3 text-sage-500">{formatDate(t.created_at)}</td>
+                  <td className="whitespace-nowrap px-4 py-3 text-muted">{formatDate(t.created_at)}</td>
                   <td className="px-4 py-3 text-right">
                     <Link
                       href={`/dashboard/nfc/${t.id}`}
-                      className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-forest-800 transition hover:bg-sage-100"
+                      className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-navy-800 transition hover:bg-petal-100"
                     >
                       <Eye size={14} /> Detail
                     </Link>
@@ -166,7 +166,7 @@ export default async function NfcListPage({
           </tbody>
         </table>
       </div>
-      <p className="mt-3 text-xs text-sage-500">{tags.length} tag ditampilkan.</p>
+      <p className="mt-3 text-xs text-muted">{tags.length} tag ditampilkan.</p>
     </div>
   );
 }

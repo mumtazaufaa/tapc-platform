@@ -6,8 +6,8 @@ import { createTag, type FormState } from "../actions";
 type Customer = { id: string; full_name: string; company: string | null };
 
 const input =
-  "w-full rounded-lg border border-sage-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15";
-const labelCls = "text-sm font-medium text-forest-800";
+  "w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15";
+const labelCls = "text-sm font-medium text-navy-800";
 
 export function RegisterForm({ customers }: { customers: Customer[] }) {
   const [state, action, pending] = useActionState<FormState, FormData>(createTag, {});
@@ -29,15 +29,15 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
     <form action={action} className="mt-6 space-y-6">
       <input type="hidden" name="mode" value={mode} />
 
-      <section className="space-y-4 rounded-2xl border border-sage-300/70 bg-white p-6">
+      <section className="space-y-4 rounded-2xl border border-petal-300/70 bg-white p-6">
         <h2 className="text-sm font-semibold">Customer</h2>
         {customers.length > 0 && (
-        <div className="flex gap-1 rounded-xl border border-sage-300/70 p-1 text-sm">
+        <div className="flex gap-1 rounded-xl border border-petal-300/70 p-1 text-sm">
             <button
               type="button"
               onClick={() => setMode("existing")}
               className={`flex-1 rounded-lg px-3 py-1.5 transition ${
-                mode === "existing" ? "bg-forest-900 font-medium text-white" : "text-forest-800 hover:bg-sage-100"
+                mode === "existing" ? "bg-navy-900 font-medium text-white" : "text-navy-800 hover:bg-petal-100"
               }`}
             >
               Customer yang sudah ada
@@ -46,7 +46,7 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
             type="button"
             onClick={() => setMode("new")}
             className={`flex-1 rounded-lg px-3 py-1.5 transition ${
-              mode === "new" ? "bg-forest-900 font-medium text-white" : "text-forest-800 hover:bg-sage-100"
+              mode === "new" ? "bg-navy-900 font-medium text-white" : "text-navy-800 hover:bg-petal-100"
             }`}
           >
             Customer baru
@@ -96,7 +96,7 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
         )}
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-sage-300/70 bg-white p-6">
+      <section className="space-y-4 rounded-2xl border border-petal-300/70 bg-white p-6">
         <h2 className="text-sm font-semibold">Tag NFC</h2>
         <div className="space-y-1.5">
           <label htmlFor="label" className={labelCls}>Label (opsional)</label>
@@ -114,13 +114,13 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
             className={input}
           />
         </div>
-        <label className="flex items-center gap-2 text-sm text-forest-800">
+        <label className="flex items-center gap-2 text-sm text-navy-800">
           <input
             type="checkbox"
             name="is_active"
             checked={v.is_active}
             onChange={(e) => setV((p) => ({ ...p, is_active: e.target.checked }))}
-            className="h-4 w-4 accent-forest-800"
+            className="h-4 w-4 accent-navy-800"
           />
           Aktifkan tag sekarang
         </label>
@@ -135,7 +135,7 @@ export function RegisterForm({ customers }: { customers: Customer[] }) {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-lg bg-forest-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-forest-800 disabled:opacity-60"
+        className="w-full rounded-lg bg-navy-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-navy-800 disabled:opacity-60"
       >
         {pending ? "Menyimpan…" : "Simpan dan buat URL permanen"}
       </button>

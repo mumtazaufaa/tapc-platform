@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-sage-500">{label}</dt>
+      <dt className="text-xs uppercase tracking-wide text-muted">{label}</dt>
       <dd className="mt-1 text-sm">{children}</dd>
     </div>
   );
@@ -30,9 +30,9 @@ export default async function SettingsPage() {
   return (
     <div className="mx-auto max-w-3xl">
       <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
-      <p className="mt-1 text-sm text-sage-500">Profil Owner dan informasi aplikasi.</p>
+      <p className="mt-1 text-sm text-muted">Profil Owner dan informasi aplikasi.</p>
 
-      <section className="mt-6 rounded-2xl border border-sage-300/70 bg-white p-6">
+      <section className="mt-6 rounded-2xl border border-petal-300/70 bg-white p-6">
         <h2 className="text-sm font-semibold">Profil Owner</h2>
         <dl className="mt-4 grid gap-5 sm:grid-cols-2">
           <Field label="Nama">{owner.full_name ?? "-"}</Field>
@@ -40,12 +40,12 @@ export default async function SettingsPage() {
           <Field label="Peran">Owner</Field>
           <Field label="Akun dibuat">{admin?.created_at ? formatDate(admin.created_at) : "-"}</Field>
         </dl>
-        <p className="mt-5 text-xs text-sage-500">
+        <p className="mt-5 text-xs text-muted">
           Nama, email, dan password diubah lewat Supabase Authentication dan tabel admins.
         </p>
       </section>
 
-      <section className="mt-6 rounded-2xl border border-sage-300/70 bg-white p-6">
+      <section className="mt-6 rounded-2xl border border-petal-300/70 bg-white p-6">
         <h2 className="text-sm font-semibold">Informasi aplikasi</h2>
         <dl className="mt-4 space-y-5">
           <Field label="Aplikasi">TAP&amp;C (Tap and Connect), pengalihan URL untuk tag NFC</Field>
@@ -58,7 +58,7 @@ export default async function SettingsPage() {
           <Field label="Zona waktu tampilan">Asia/Jakarta</Field>
         </dl>
         {(base.isLocal || onVercelDomain) && (
-          <p className="mt-5 rounded-lg bg-sage-100 px-4 py-3 text-sm text-forest-800">
+          <p className="mt-5 rounded-lg bg-petal-100 px-4 py-3 text-sm text-navy-800">
             {base.isLocal
               ? "Alamat ini lokal, jadi jangan dipakai untuk memprogram tag."
               : "Alamat ini masih domain vercel.app. URL di tag fisik tidak bisa diubah tanpa memprogram ulang tag, jadi pasang domain sendiri dulu sebelum memprogram tag untuk customer."}
@@ -69,7 +69,7 @@ export default async function SettingsPage() {
       <form action={signOut} className="mt-6">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-lg border border-sage-300 bg-white px-4 py-2.5 text-sm font-medium text-forest-800 transition hover:bg-sage-100"
+          className="inline-flex items-center gap-2 rounded-lg border border-petal-300 bg-white px-4 py-2.5 text-sm font-medium text-navy-800 transition hover:bg-petal-100"
         >
           <LogOut size={16} /> Keluar
         </button>

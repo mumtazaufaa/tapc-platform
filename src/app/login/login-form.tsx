@@ -12,7 +12,7 @@ export function LoginForm({ notice }: { notice?: string }) {
   return (
     <form action={action} className="space-y-5">
       <div className="space-y-1.5">
-        <label htmlFor="email" className="text-sm font-medium text-forest-800">
+        <label htmlFor="email" className="text-sm font-medium text-navy-800">
           Email
         </label>
         <input
@@ -21,11 +21,11 @@ export function LoginForm({ notice }: { notice?: string }) {
           type="email"
           autoComplete="email"
           required
-          className="w-full rounded-lg border border-sage-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15"
+          className="w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15"
         />
       </div>
       <div className="space-y-1.5">
-        <label htmlFor="password" className="text-sm font-medium text-forest-800">
+        <label htmlFor="password" className="text-sm font-medium text-navy-800">
           Password
         </label>
         <input
@@ -34,7 +34,7 @@ export function LoginForm({ notice }: { notice?: string }) {
           type="password"
           autoComplete="current-password"
           required
-          className="w-full rounded-lg border border-sage-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15"
+          className="w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15"
         />
       </div>
       {message && (
@@ -45,7 +45,7 @@ export function LoginForm({ notice }: { notice?: string }) {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-lg bg-forest-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-forest-800 disabled:opacity-60"
+        className="w-full rounded-lg bg-navy-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-navy-800 disabled:opacity-60"
       >
         {pending ? "Memeriksa…" : "Masuk"}
       </button>

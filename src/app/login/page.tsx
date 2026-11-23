@@ -15,16 +15,16 @@ export default async function LoginPage({
   const notice = error === "akses" ? "Akun ini tidak memiliki akses admin." : undefined;
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4">
+    <main className="gingham flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-forest-900 text-lg font-semibold text-white">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-petal-500 text-lg font-semibold text-navy-950">
             T
           </div>
-          <h1 className="text-xl font-semibold tracking-tight text-forest-950">TAP&amp;C</h1>
-          <p className="mt-1 text-sm text-sage-500">Masuk ke dashboard admin</p>
+          <h1 className="text-xl font-semibold tracking-tight text-navy-950">TAP&amp;C</h1>
+          <p className="mt-1 text-sm text-muted">Masuk ke dashboard admin</p>
         </div>
-        <div className="rounded-2xl border border-sage-300/70 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-petal-300/70 bg-white p-6 shadow-sm">
           <LoginForm notice={notice} />
         </div>
       </div>

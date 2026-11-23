@@ -21,7 +21,7 @@ export function ToggleActive({ id, active }: { id: string; active: boolean }) {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg border border-sage-300 bg-white px-3 py-1.5 text-xs font-medium text-forest-800 transition hover:bg-sage-100 disabled:opacity-60"
+        className="rounded-lg border border-petal-300 bg-white px-3 py-1.5 text-xs font-medium text-navy-800 transition hover:bg-petal-100 disabled:opacity-60"
       >
         {pending ? "Memproses…" : active ? "Nonaktifkan" : "Aktifkan"}
       </button>

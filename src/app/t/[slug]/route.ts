@@ -11,8 +11,8 @@ function page(status: number, title: string, text: string) {
   const html = `<!doctype html><html lang="id"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>${title}</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f7f8f5;color:#163326;font-family:ui-sans-serif,system-ui,sans-serif}
-main{text-align:center;padding:24px}h1{font-size:20px;margin:0 0 8px}p{margin:0;color:#6b8577;font-size:14px}</style></head>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fcf5ec;color:#1f2842;font-family:ui-sans-serif,system-ui,sans-serif}
+main{text-align:center;padding:24px}h1{font-size:20px;margin:0 0 8px}p{margin:0;color:#5f6988;font-size:14px}</style></head>
 <body><main><h1>${title}</h1><p>${text}</p></main></body></html>`;
   return new NextResponse(html, {
     status,

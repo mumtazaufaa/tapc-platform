@@ -13,8 +13,8 @@ type Customer = {
 };
 
 const inputClass =
-  "mt-1.5 w-full rounded-lg border border-sage-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15";
-const labelClass = "text-xs uppercase tracking-wide text-sage-500";
+  "mt-1.5 w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15";
+const labelClass = "text-xs uppercase tracking-wide text-muted";
 
 export function EditCustomerForm({ customer }: { customer: Customer }) {
   const [state, action, pending] = useActionState<FormState, FormData>(updateCustomer, {});
@@ -97,7 +97,7 @@ export function EditCustomerForm({ customer }: { customer: Customer }) {
         <button
           type="submit"
           disabled={pending}
-          className="rounded-lg bg-forest-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-forest-800 disabled:opacity-60"
+          className="rounded-lg bg-navy-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-navy-800 disabled:opacity-60"
         >
           {pending ? "Menyimpan…" : "Simpan perubahan"}
         </button>
@@ -109,7 +109,7 @@ export function EditCustomerForm({ customer }: { customer: Customer }) {
         </p>
       )}
       {state.ok && (
-        <p role="status" className="rounded-lg bg-sage-100 px-3.5 py-2.5 text-sm text-forest-800">
+        <p role="status" className="rounded-lg bg-petal-100 px-3.5 py-2.5 text-sm text-navy-800">
           {state.ok}
         </p>
       )}

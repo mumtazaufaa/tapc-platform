@@ -21,12 +21,12 @@ export default async function NewNfcPage() {
     <div className="mx-auto max-w-2xl">
       <Link
         href="/dashboard/nfc"
-        className="inline-flex items-center gap-1.5 text-sm text-sage-500 transition hover:text-forest-900"
+        className="inline-flex items-center gap-1.5 text-sm text-muted transition hover:text-navy-900"
       >
         <ArrowLeft size={16} /> Kembali ke daftar
       </Link>
       <h1 className="mt-4 text-2xl font-semibold tracking-tight">Registrasi NFC baru</h1>
-      <p className="mt-1 text-sm text-sage-500">
+      <p className="mt-1 text-sm text-muted">
         URL permanen dibuat otomatis oleh sistem setelah tag disimpan.
       </p>
       {error && (

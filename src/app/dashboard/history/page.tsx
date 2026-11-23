@@ -52,14 +52,14 @@ export default async function HistoryPage({
   const lastPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const pageHref = (p: number) => (p <= 1 ? "/dashboard/history" : `/dashboard/history?page=${p}`);
   const navClass =
-    "inline-flex items-center gap-1 rounded-lg border border-sage-300 bg-white px-3 py-1.5 text-sm text-forest-800 transition hover:bg-sage-100";
+    "inline-flex items-center gap-1 rounded-lg border border-petal-300 bg-white px-3 py-1.5 text-sm text-navy-800 transition hover:bg-petal-100";
   const navDisabled =
-    "inline-flex items-center gap-1 rounded-lg border border-sage-300/60 px-3 py-1.5 text-sm text-sage-500";
+    "inline-flex items-center gap-1 rounded-lg border border-petal-300/60 px-3 py-1.5 text-sm text-muted";
 
   return (
     <div className="mx-auto max-w-6xl">
       <h1 className="text-2xl font-semibold tracking-tight">Link History</h1>
-      <p className="mt-1 text-sm text-sage-500">
+      <p className="mt-1 text-sm text-muted">
         Semua perubahan tujuan link, dari yang terbaru. Riwayat hanya bisa dibaca.
       </p>
 
@@ -69,9 +69,9 @@ export default async function HistoryPage({
         </p>
       )}
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-sage-300/70 bg-white">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-petal-300/70 bg-white">
         <table className="w-full min-w-[60rem] text-left text-sm">
-          <thead className="border-b border-sage-300/70 text-xs uppercase tracking-wide text-sage-500">
+          <thead className="border-b border-petal-300/70 text-xs uppercase tracking-wide text-muted">
             <tr>
               <th className="px-4 py-3 font-medium">Waktu</th>
               <th className="px-4 py-3 font-medium">Tag</th>
@@ -82,10 +82,10 @@ export default async function HistoryPage({
               <th className="px-4 py-3 font-medium">Oleh</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-sage-300/50">
+          <tbody className="divide-y divide-petal-300/50">
             {rows.length === 0 && !error && (
               <tr>
-                <td colSpan={7} className="px-4 py-12 text-center text-sage-500">
+                <td colSpan={7} className="px-4 py-12 text-center text-muted">
                   {page > 1
                     ? "Tidak ada data di halaman ini."
                     : "Belum ada riwayat. Riwayat muncul saat tag dibuat atau tujuannya diubah."}
@@ -94,34 +94,34 @@ export default async function HistoryPage({
             )}
             {rows.map((h) => (
               <tr key={h.id} className="align-top">
-                <td className="whitespace-nowrap px-4 py-3 text-sage-500">
+                <td className="whitespace-nowrap px-4 py-3 text-muted">
                   {formatDateTime(h.changed_at)}
                 </td>
                 <td className="px-4 py-3">
                   {h.nfc_tags ? (
                     <Link
                       href={`/dashboard/nfc/${h.nfc_tags.id}`}
-                      className="block text-forest-800 underline-offset-2 hover:underline"
+                      className="block text-navy-800 underline-offset-2 hover:underline"
                     >
                       {h.nfc_tags.label ?? "Tanpa label"}
-                      <span className="mt-0.5 block font-mono text-xs text-sage-500">
+                      <span className="mt-0.5 block font-mono text-xs text-muted">
                         {h.nfc_tags.slug}
                       </span>
                     </Link>
                   ) : (
-                    <span className="text-sage-500">-</span>
+                    <span className="text-muted">-</span>
                   )}
                 </td>
                 <td className="px-4 py-3">
                   {h.nfc_tags?.customers ? (
                     <Link
                       href={`/dashboard/customers/${h.nfc_tags.customers.id}`}
-                      className="text-forest-800 underline-offset-2 hover:underline"
+                      className="text-navy-800 underline-offset-2 hover:underline"
                     >
                       {h.nfc_tags.customers.full_name}
                     </Link>
                   ) : (
-                    <span className="text-sage-500">-</span>
+                    <span className="text-muted">-</span>
                   )}
                 </td>
                 <td className="px-4 py-3">{CHANGE_LABEL[h.change_type] ?? h.change_type}</td>
@@ -135,7 +135,7 @@ export default async function HistoryPage({
                     {h.new_url}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-sage-500">{h.changed_by_email ?? "-"}</td>
+                <td className="px-4 py-3 text-muted">{h.changed_by_email ?? "-"}</td>
               </tr>
             ))}
           </tbody>
@@ -143,7 +143,7 @@ export default async function HistoryPage({
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-xs text-sage-500">
+        <p className="text-xs text-muted">
           {total} catatan · halaman {Math.min(page, lastPage)} dari {lastPage}
         </p>
         <div className="flex gap-2">

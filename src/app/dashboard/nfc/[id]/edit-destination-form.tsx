@@ -9,7 +9,7 @@ export function EditDestinationForm({ id, current }: { id: string; current: stri
   return (
     <form action={action} className="space-y-2">
       <input type="hidden" name="id" value={id} />
-      <label htmlFor="destination_url" className="text-xs uppercase tracking-wide text-sage-500">
+      <label htmlFor="destination_url" className="text-xs uppercase tracking-wide text-muted">
         Ubah tujuan
       </label>
       <div className="flex flex-col gap-2 sm:flex-row">
@@ -19,24 +19,24 @@ export function EditDestinationForm({ id, current }: { id: string; current: stri
           key={current}
           defaultValue={current}
           required
-          className="w-full rounded-lg border border-sage-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15"
+          className="w-full rounded-lg border border-petal-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-navy-700 focus:ring-2 focus:ring-navy-700/15"
         />
         <button
           type="submit"
           disabled={pending}
-          className="shrink-0 rounded-lg bg-forest-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-forest-800 disabled:opacity-60"
+          className="shrink-0 rounded-lg bg-navy-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-navy-800 disabled:opacity-60"
         >
           {pending ? "Menyimpan…" : "Simpan"}
         </button>
       </div>
-      <p className="text-xs text-sage-500">URL permanen di tag NFC tidak berubah; hanya tujuannya.</p>
+      <p className="text-xs text-muted">URL permanen di tag NFC tidak berubah; hanya tujuannya.</p>
       {state.error && (
         <p role="alert" className="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-800">
           {state.error}
         </p>
       )}
       {state.ok && (
-        <p role="status" className="rounded-lg bg-sage-100 px-3.5 py-2.5 text-sm text-forest-800">
+        <p role="status" className="rounded-lg bg-petal-100 px-3.5 py-2.5 text-sm text-navy-800">
           {state.ok}
         </p>
       )}

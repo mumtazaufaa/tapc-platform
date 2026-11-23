@@ -46,7 +46,7 @@ const CHANGE_LABEL: Record<string, string> = { created: "Dibuat", updated: "Diub
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-sage-500">{label}</dt>
+      <dt className="text-xs uppercase tracking-wide text-muted">{label}</dt>
       <dd className="mt-1 text-sm">{children}</dd>
     </div>
   );
@@ -103,7 +103,7 @@ export default async function NfcDetailPage({
     <div className="mx-auto max-w-4xl">
       <Link
         href="/dashboard/nfc"
-        className="inline-flex items-center gap-1.5 text-sm text-sage-500 transition hover:text-forest-900"
+        className="inline-flex items-center gap-1.5 text-sm text-muted transition hover:text-navy-900"
       >
         <ArrowLeft size={16} /> Kembali ke daftar
       </Link>
@@ -115,27 +115,27 @@ export default async function NfcDetailPage({
           <ToggleActive id={tag.id} active={tag.is_active} />
         </div>
       </div>
-      <p className="mt-1 font-mono text-xs text-sage-500">{tag.slug}</p>
+      <p className="mt-1 font-mono text-xs text-muted">{tag.slug}</p>
 
       {baru === "1" && (
-        <p role="status" className="mt-6 rounded-lg bg-forest-800/10 px-4 py-3 text-sm text-forest-800">
+        <p role="status" className="mt-6 rounded-lg bg-navy-800/10 px-4 py-3 text-sm text-navy-800">
           Tag berhasil didaftarkan. Salin URL permanen di bawah, lalu program ke tag NFC.
         </p>
       )}
 
       {base.isLocal && (
-        <p className="mt-6 rounded-lg bg-sage-100 px-4 py-3 text-sm text-forest-800">
+        <p className="mt-6 rounded-lg bg-petal-100 px-4 py-3 text-sm text-navy-800">
           URL permanen di bawah memakai alamat lokal. Jangan diprogram ke tag NFC sebelum aplikasi
           dideploy.
         </p>
       )}
       {!tag.is_active && (
-        <p className="mt-6 rounded-lg bg-sage-100 px-4 py-3 text-sm text-forest-800">
+        <p className="mt-6 rounded-lg bg-petal-100 px-4 py-3 text-sm text-navy-800">
           Tag ini nonaktif, jadi tap pada tag tidak akan mengalihkan ke tujuan.
         </p>
       )}
 
-      <section className="mt-6 rounded-2xl border border-sage-300/70 bg-white p-6">
+      <section className="mt-6 rounded-2xl border border-petal-300/70 bg-white p-6">
         <h2 className="text-sm font-semibold">Link</h2>
         <dl className="mt-4 space-y-5">
           <Field label="URL permanen (diprogram ke tag NFC)">
@@ -150,7 +150,7 @@ export default async function NfcDetailPage({
                 href={tag.destination_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-start gap-1.5 break-all text-forest-800 underline-offset-2 hover:underline"
+                className="inline-flex items-start gap-1.5 break-all text-navy-800 underline-offset-2 hover:underline"
               >
                 {tag.destination_url} <ExternalLink size={14} className="mt-0.5 shrink-0" />
               </a>
@@ -159,13 +159,13 @@ export default async function NfcDetailPage({
             )}
           </Field>
         </dl>
-        <div className="mt-6 border-t border-sage-300/60 pt-5">
+        <div className="mt-6 border-t border-petal-300/60 pt-5">
           <EditDestinationForm id={tag.id} current={tag.destination_url} />
         </div>
       </section>
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <section className="rounded-2xl border border-sage-300/70 bg-white p-6">
+        <section className="rounded-2xl border border-petal-300/70 bg-white p-6">
           <h2 className="text-sm font-semibold">Customer</h2>
           {tag.customers ? (
             <dl className="mt-4 space-y-4">
@@ -180,11 +180,11 @@ export default async function NfcDetailPage({
               )}
             </dl>
           ) : (
-            <p className="mt-4 text-sm text-sage-500">Data customer tidak tersedia.</p>
+            <p className="mt-4 text-sm text-muted">Data customer tidak tersedia.</p>
           )}
         </section>
 
-        <section className="rounded-2xl border border-sage-300/70 bg-white p-6">
+        <section className="rounded-2xl border border-petal-300/70 bg-white p-6">
           <h2 className="text-sm font-semibold">Info tag</h2>
           <dl className="mt-4 space-y-4">
             <Field label="Dibuat">{formatDateTime(tag.created_at)}</Field>
@@ -193,7 +193,7 @@ export default async function NfcDetailPage({
         </section>
       </div>
 
-      <section className="mt-6 rounded-2xl border border-sage-300/70 bg-white">
+      <section className="mt-6 rounded-2xl border border-petal-300/70 bg-white">
         <h2 className="px-6 pt-6 text-sm font-semibold">Riwayat perubahan link</h2>
         {historyRes.error && (
           <p role="alert" className="mx-6 mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800">
@@ -202,7 +202,7 @@ export default async function NfcDetailPage({
         )}
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[40rem] text-left text-sm">
-            <thead className="border-y border-sage-300/70 text-xs uppercase tracking-wide text-sage-500">
+            <thead className="border-y border-petal-300/70 text-xs uppercase tracking-wide text-muted">
               <tr>
                 <th className="px-6 py-3 font-medium">Waktu</th>
                 <th className="px-4 py-3 font-medium">Jenis</th>
@@ -211,17 +211,17 @@ export default async function NfcDetailPage({
                 <th className="px-6 py-3 font-medium">Oleh</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sage-300/50">
+            <tbody className="divide-y divide-petal-300/50">
               {history.length === 0 && !historyRes.error && (
                 <tr>
-                  <td colSpan={5} className="px-6 py-8 text-center text-sage-500">
+                  <td colSpan={5} className="px-6 py-8 text-center text-muted">
                     Belum ada riwayat.
                   </td>
                 </tr>
               )}
               {history.map((h) => (
                 <tr key={h.id} className="align-top">
-                  <td className="whitespace-nowrap px-6 py-3 text-sage-500">{formatDateTime(h.changed_at)}</td>
+                  <td className="whitespace-nowrap px-6 py-3 text-muted">{formatDateTime(h.changed_at)}</td>
                   <td className="px-4 py-3">{CHANGE_LABEL[h.change_type] ?? h.change_type}</td>
                   <td className="px-4 py-3">
                     <span className="block max-w-[14rem] truncate" title={h.old_url ?? ""}>
@@ -233,7 +233,7 @@ export default async function NfcDetailPage({
                       {h.new_url}
                     </span>
                   </td>
-                  <td className="px-6 py-3 text-sage-500">{h.changed_by_email ?? "-"}</td>
+                  <td className="px-6 py-3 text-muted">{h.changed_by_email ?? "-"}</td>
                 </tr>
               ))}
             </tbody>
