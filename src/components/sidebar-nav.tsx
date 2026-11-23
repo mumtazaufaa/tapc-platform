@@ -7,9 +7,9 @@ import { History, LayoutDashboard, Nfc, Settings, Users } from "lucide-react";
 const items = [
   { label: "Overview", href: "/dashboard", icon: LayoutDashboard, ready: true },
   { label: "NFC Management", href: "/dashboard/nfc", icon: Nfc, ready: true },
-  { label: "Customers", href: "/dashboard/customers", icon: Users, ready: false },
-  { label: "Link History", href: "/dashboard/history", icon: History, ready: false },
-  { label: "Settings", href: "/dashboard/settings", icon: Settings, ready: false },
+  { label: "Customers", href: "/dashboard/customers", icon: Users, ready: true },
+  { label: "Link History", href: "/dashboard/history", icon: History, ready: true },
+  { label: "Settings", href: "/dashboard/settings", icon: Settings, ready: true },
 ];
 
 export function SidebarNav() {
